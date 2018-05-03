@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Bienvenido a su banca virtual!</div>
+                <div class="card-header">Bienvenido {{Auth::user()->lastname}} {{Auth::user()->firstname}} !</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,10 +13,43 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
-                    {{Auth::user()->countnumber}}
-
+                    <div class="panel-body">
+                        <div class="panel-heading">
+                            Informacion de su cuenta
+                        </div>
+                        <table class="table table-striped task-table">
+                            <thead>
+                                <th>Tipo</th>
+                                <th>Descripcion</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nombres</td>
+                                    <td>{{Auth::user()->firstname}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Apellidos</td>
+                                    <td>{{Auth::user()->lastname}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Correo</td>
+                                    <td>{{Auth::user()->email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>DPI</td>
+                                    <td>{{Auth::user()->id}}</td>
+                                </tr>
+                                <tr>
+                                    <td>No. de cuenta</td>
+                                    <td>{{Auth::user()->countnumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Saldo actual</td>
+                                    <td>{{Auth::user()->balance}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>             
                 </div>
             </div>
         </div>
