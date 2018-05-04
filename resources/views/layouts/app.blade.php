@@ -26,7 +26,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Banca Virtual') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,21 +46,21 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href=""
                                        onclick="event.preventDefault();
-                                                     document.getElementById('operacion1-form').submit();">
-                                        {{ __('Operacion1') }}
+                                                     document.getElementById('consultarsaldo-form').submit();">
+                                        {{ __('Consultar Mi Saldo') }}
                                     </a>
 
-                                    <form id="operacion1-form" action="" method="POST" style="display: none;">
+                                    <form id="consultarsaldo-form" action="{{ route('saldo')}}" method="GET" style="display: none;">
                                         @csrf
                                     </form>
 
                                     <a class="dropdown-item" href=""
                                        onclick="event.preventDefault();
-                                                     document.getElementById('operacion2-form').submit();">
-                                        {{ __('Operacion2') }}
+                                                     document.getElementById('transferencia-form').submit();">
+                                        {{ __('Realizar Transferencia') }}
                                     </a>
 
-                                    <form id="operacion2-form" action="" method="POST" style="display: none;">
+                                    <form id="transferencia-form" action="{{ route('transferencia')}}" method="GET" style="display: none;">
                                         @csrf
                                     </form>
                             </li>
@@ -71,8 +71,8 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Acceder') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a></li>
                         @else                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -83,7 +83,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Salir') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

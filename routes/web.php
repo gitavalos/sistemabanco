@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('/');
 
 Auth::routes();
-
+Route::post('/realizartransferencia','SaldoController@realizartransferencia')->name('realizartransferencia');
+Route::get('/consultasaldo','SaldoController@consultasaldo')->name('saldo');
+Route::get('/transferenciasaldo','SaldoController@transferenciasaldo')->name('transferencia');
 Route::get('/home', 'HomeController@index')->name('home');

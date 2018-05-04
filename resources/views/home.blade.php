@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Bienvenido {{Auth::user()->lastname}} {{Auth::user()->firstname}} !</div>
+                <div class="card-header">Bienvenido: {{Auth::user()->lastname}} {{Auth::user()->firstname}} </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -19,8 +19,8 @@
                         </div>
                         <table class="table table-striped task-table">
                             <thead>
-                                <th>Tipo</th>
-                                <th>Descripcion</th>
+                                <th></th>
+                                <th></th>
                             </thead>
                             <tbody>
                                 <tr>
@@ -42,11 +42,7 @@
                                 <tr>
                                     <td>No. de cuenta</td>
                                     <td>{{Auth::user()->countnumber}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Saldo actual</td>
-                                    <td>{{Auth::user()->balance}}</td>
-                                </tr>
+                                </tr>                               
                             </tbody>
                         </table>
                     </div>             
