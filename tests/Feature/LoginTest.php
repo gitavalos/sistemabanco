@@ -39,6 +39,6 @@ class LoginTest extends TestCase
             ->type($user1->countnumber, 'countnumber')
             ->type('123456', 'password')
             ->press('Login')    
-            ->see('Bienvenido: Avalos Antonio');
+            ->see('Analisis2018');
     }
 }
